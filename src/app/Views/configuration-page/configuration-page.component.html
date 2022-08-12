@@ -1,0 +1,96 @@
+<mat-grid-list cols="2" rowHeight="45%">
+  <!-- Stocks -->
+  <mat-grid-tile colspan="1" rowspan="2">
+    <div class="leftGrid">
+      <mat-card class="placeholder">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Configuration</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="content">
+          <div>
+            <label for="payloadSize">Payload Size</label>
+            <br />
+            <br />
+            <form
+              class="example-form"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+            >
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Payload Size</mat-label>
+                <input
+                  type="number"
+                  name="payloadSize"
+                  matInput
+                  [formControl]="payloadSizeFormControl"
+                  [errorStateMatcher]="matcher"
+                  #payloadSize
+                  [(ngModel)]="form.payloadSize"
+                  placeholder="Ex. pat@example.com"
+                />
+                <mat-hint
+                  >Please use positive, round numbers. (ex. 1, 10,
+                  100)</mat-hint
+                >
+                <mat-error *ngIf="!payloadSizeFormControl.hasError('required')">
+                  Please enter a valid payload size.
+                </mat-error>
+                <mat-error *ngIf="payloadSizeFormControl.hasError('required')">
+                  Payload size is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </form>
+          </div>
+        </mat-card-content>
+        <button mat-raised-button color="warn">Start Application</button>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1" class="">
+    <div class="rightGrid">
+      <mat-card class="placeholder">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Quarkus JVm</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="content">
+          <div>
+            <div>
+              <mat-label>Cration Time</mat-label>
+              <span></span>
+            </div>
+            <div>
+              <mat-label>Finished Process</mat-label>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1" class="">
+    <div class="rightGrid">
+      <mat-card class="placeholder">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Quarkus Native Build</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="content">
+          <div>
+            <div>
+              <mat-label>Cration Time</mat-label>
+              <span></span>
+            </div>
+            <div>
+              <mat-label>Finished Process</mat-label>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
