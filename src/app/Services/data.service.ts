@@ -36,4 +36,19 @@ export class DataService {
       responseType: 'text',
     });
   }
+
+  /**
+   * @returns Observable
+   */
+  public sentPayload(payloadSize: number): Observable<any> {
+    return this.http.post(
+      API_URL + 'configure/' + 'sentPayload/' + payloadSize,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        responseType: 'text',
+      }
+    );
+  }
 }

@@ -45,29 +45,9 @@
             </form>
           </div>
         </mat-card-content>
-        <button mat-raised-button color="warn">Start Application</button>
-      </mat-card>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1" class="">
-    <div class="rightGrid">
-      <mat-card class="placeholder">
-        <mat-card-header>
-          <mat-card-title>
-            <h3>Quarkus JVm</h3>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="content">
-          <div>
-            <div>
-              <mat-label>Cration Time</mat-label>
-              <span></span>
-            </div>
-            <div>
-              <mat-label>Finished Process</mat-label>
-            </div>
-          </div>
-        </mat-card-content>
+        <button mat-raised-button color="warn" (click)="sentPayload()">
+          Start Application
+        </button>
       </mat-card>
     </div>
   </mat-grid-tile>
@@ -82,12 +62,62 @@
         <mat-card-content class="content">
           <div>
             <div>
-              <mat-label>Cration Time</mat-label>
-              <span></span>
+              <mat-label><strong>Creation Time</strong></mat-label>
+              <br />
+              <br />
+              <span>{{ resultJVM?.timestamp }}</span>
             </div>
+            <br />
             <div>
-              <mat-label>Finished Process</mat-label>
+              <mat-label><strong>Finished Process</strong></mat-label>
+              <br />
+              <br />
+              <span>{{ resultJVM?.result?.publishedTimestamp }}</span>
             </div>
+            <br />
+            <div>
+              <mat-label
+                ><strong>It took {{ timeDifferenceJVM }}ms</strong></mat-label
+              >
+            </div>
+            <br />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="1" class="">
+    <div class="rightGrid">
+      <mat-card class="placeholder">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Quarkus JVM Build</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="content">
+          <div>
+            <div>
+              <mat-label><strong>Creation Time</strong></mat-label>
+              <br />
+              <br />
+              <span>{{ resultNative?.timestamp }}</span>
+            </div>
+            <br />
+            <div>
+              <mat-label><strong>Finished Process</strong></mat-label>
+              <br />
+              <br />
+              <span>{{ resultNative?.result?.publishedTimestamp }}</span>
+            </div>
+            <br />
+            <div>
+              <mat-label
+                ><strong
+                  >It took {{ timeDifferenceNative }}ms</strong
+                ></mat-label
+              >
+            </div>
+            <br />
           </div>
         </mat-card-content>
       </mat-card>
